@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Fantox Ltd</title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+
+
+       .nav-links a {
+  margin: 0 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #dc2626;
+}
+
+
+        .cta-button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #4a5568;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Overview */
+        .services-overview {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-overview h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-overview p {
+            color: #4a5568;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            padding: 6rem 5%;
+            background: #f7fafc;
+        }
+
+        .service-detail:nth-child(even) {
+            background: white;
+        }
+
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .service-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .service-icon-large {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-content p {
+            color: #4a5568;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .features-list li {
+            padding: 1rem 0;
+            color: #4a5568;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: #dc2626;
+            font-weight: bold;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .service-visual {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(153, 27, 27, 0.1) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-visual::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .pricing-highlight {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: white;
+            border-left: 4px solid #dc2626;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-detail:nth-child(even) .pricing-highlight {
+            background: #f7fafc;
+        }
+
+        .pricing-highlight h3 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .pricing-highlight p {
+            color: #4a5568;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .process-container h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .process-container > p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #dc2626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Industries Section */
+        .industries-section {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .industries-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .industries-container h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .industries-container > p {
+            color: #4a5568;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .industry-card {
+            padding: 2rem 1.5rem;
+            background: #f7fafc;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.15);
+            background: white;
+        }
+
+        .industry-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .industry-card h3 {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 8rem 5%;
+            text-align: center;
+            background: #f7fafc;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            padding: 1rem 2.5rem;
+            background: white;
+            border: 2px solid #dc2626;
+            border-radius: 50px;
+            color: #dc2626;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: #dc2626;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        @media (max-width: 968px) {
+            .service-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .service-visual {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <img src="https://fantox.co.uk/wp-content/uploads/2023/01/Fantox-2-png.png" width="180" height="55">
+
+
+
+
+
+  <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Our Services</a>
+      
+      <a href="getstarted.html">Get Started</a>
+    </div>
+ 
+        <a href="contact.html" class="cta-button">Contact Us</a>
+    </nav>
+
+
+
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Services</h1>
+            <p>Comprehensive financial solutions tailored to your business needs. From accounting and taxation to strategic business advisory, we provide the expertise you need to thrive.</p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <h2>End-to-End Business Support</h2>
+        <p>We offer a complete suite of services designed to handle every aspect of your financial operations. Whether you're a startup finding your feet or an established business looking to scale, our expert team has you covered.</p>
+    </section>
+
+    <!-- Service 1: Accountancy -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-icon-large">📊</div>
+                <h2>Professional Accountancy</h2>
+                <p>Keep your finances in perfect order with our comprehensive accounting services. We handle everything from daily bookkeeping to complex financial reporting, ensuring accuracy and compliance every step of the way.</p>
+                
+                <ul class="features-list">
+                    <li>Monthly bookkeeping and reconciliation</li>
+                    <li>Financial statements and year-end accounts</li>
+                    <li>VAT returns and Making Tax Digital compliance</li>
+                    <li>Management accounts and financial reports</li>
+                    <li>Cloud accounting setup (Xero, QuickBooks, Sage)</li>
+                    <li>Accounts preparation for Companies House</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Flexible Pricing</h3>
+                    <p>From £150/month for small businesses. Custom packages available for larger enterprises.</p>
+                </div>
+            </div>
+            <div class="service-visual">📈</div>
+        </div>
+    </section>
+
+    <!-- Service 2: Taxation -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-visual">💰</div>
+            <div class="service-content">
+                <div class="service-icon-large">💰</div>
+                <h2>Expert Taxation Services</h2>
+                <p>Navigate the complex UK tax system with confidence. Our tax specialists ensure you pay the minimum required by law while maximizing every available relief and allowance.</p>
+                
+                <ul class="features-list">
+                    <li>Personal and corporate tax planning</li>
+                    <li>Self-assessment tax returns</li>
+                    <li>Corporation tax compliance and optimization</li>
+                    <li>Capital Gains Tax (CGT) planning</li>
+                    <li>Inheritance Tax (IHT) advice</li>
+                    <li>HMRC investigations and disputes</li>
+                    <li>R&D tax credits and relief claims</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Tax Savings Guaranteed</h3>
+                    <p>Our clients save an average of £5,000+ annually through strategic tax planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 3: Payroll -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-icon-large">👥</div>
+                <h2>Hassle-Free Payroll Management</h2>
+                <p>Eliminate payroll headaches and ensure your employees are paid accurately and on time, every time. We handle all HMRC reporting requirements so you can focus on your team.</p>
+                
+                <ul class="features-list">
+                    <li>Monthly payroll processing</li>
+                    <li>RTI submissions to HMRC</li>
+                    <li>Payslips and P60s for employees</li>
+                    <li>Auto-enrolment pension compliance</li>
+                    <li>Benefits in kind (P11D) reporting</li>
+                    <li>CIS contractor payments</li>
+                    <li>Employee starter and leaver processing</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Affordable Pricing</h3>
+                    <p>From £8 per employee per month. No hidden fees or setup costs.</p>
+                </div>
+            </div>
+            <div class="service-visual">💼</div>
+        </div>
+    </section>
+
+    <!-- Service 4: Business Start-up -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-visual">🚀</div>
+            <div class="service-content">
+                <div class="service-icon-large">🚀</div>
+                <h2>Business Start-up Support</h2>
+                <p>Launch your business with confidence. From choosing the right structure to securing funding, we guide you through every crucial decision in your entrepreneurial journey.</p>
+                
+                <ul class="features-list">
+                    <li>Business structure advice (Sole trader, Ltd, LLP)</li>
+                    <li>Company formation and registration</li>
+                    <li>Business plan development</li>
+                    <li>Cash flow forecasting and budgeting</li>
+                    <li>Funding and grant applications</li>
+                    <li>Banking and merchant account setup</li>
+                    <li>First-year compliance support</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Start-up Package</h3>
+                    <p>Complete start-up package from £499 including company formation and first year support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service 5: Management Consultancy -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-content">
+                <div class="service-icon-large">📈</div>
+                <h2>Strategic Management Consultancy</h2>
+                <p>Transform your business with data-driven strategies. We analyze your operations, identify opportunities, and create actionable plans to boost productivity and profitability.</p>
+                
+                <ul class="features-list">
+                    <li>Business performance analysis</li>
+                    <li>KPI development and tracking</li>
+                    <li>Profitability improvement strategies</li>
+                    <li>Cost reduction and efficiency audits</li>
+                    <li>Growth planning and scaling strategies</li>
+                    <li>Exit planning and business valuations</li>
+                    <li>Ongoing advisory and mentorship</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Results-Driven Approach</h3>
+                    <p>Custom consultancy packages from £1,500. ROI typically achieved within 6 months.</p>
+                </div>
+            </div>
+            <div class="service-visual">🎯</div>
+        </div>
+    </section>
+
+    <!-- Service 6: Business Advisory -->
+    <section class="service-detail">
+        <div class="service-container">
+            <div class="service-visual">💡</div>
+            <div class="service-content">
+                <div class="service-icon-large">💡</div>
+                <h2>Ongoing Business Advisory</h2>
+                <p>Having a trusted advisor in your corner makes all the difference. We provide strategic guidance, challenge your thinking, and help you navigate critical business decisions.</p>
+                
+                <ul class="features-list">
+                    <li>Strategic planning sessions</li>
+                    <li>Monthly advisory calls</li>
+                    <li>Financial health check-ups</li>
+                    <li>Risk management and mitigation</li>
+                    <li>Mergers and acquisitions support</li>
+                    <li>Succession planning</li>
+                    <li>Unlimited email support</li>
+                </ul>
+
+                <div class="pricing-highlight">
+                    <h3>Your Strategic Partner</h3>
+                    <p>Advisory retainers from £500/month. Available on-demand or as part of comprehensive packages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2>Our Simple Process</h2>
+            <p>Getting started with Fantox is straightforward. Here's how we work together to achieve your goals.</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>We start with a free consultation to understand your business, challenges, and goals. No obligation, just honest advice.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Tailored Proposal</h3>
+                    <p>We create a customized service package with transparent pricing that fits your needs and budget.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Smooth Onboarding</h3>
+                    <p>Our team handles all the setup, transitions, and system integration with minimal disruption to your business.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Partnership</h3>
+                    <p>We work proactively with you, providing regular updates, strategic advice, and support whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="industries-container">
+            <h2>Industries We Serve</h2>
+            <p>We have extensive experience across multiple sectors and understand the unique challenges each industry faces.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-card-icon">🏗️</div>
+                    <h3>Construction & Trades</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">🛍️</div>
+                    <h3>Retail & E-commerce</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">💻</div>
+                    <h3>Technology & IT</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">🏥</div>
+                    <h3>Healthcare & Medical</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">🍴</div>
+                    <h3>Hospitality & Food</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">🏠</div>
+                    <h3>Property & Real Estate</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">🚚</div>
+                    <h3>Transport & Logistics</h3>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">✏️</div>
+                    <h3>Creative & Media</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Book your free consultation today and discover how Fantox can help your business reach its full potential. No pressure, just expert advice tailored to your needs.</p>
+        <div class="cta-buttons">
+            <a href="tel:+447597776846" class="cta-button" style="padding: 1rem 3rem; font-size: 1.1rem;">Book Free Consultation</a>
+            <a href="mailto:info@fantox.co.uk" class="secondary-button">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fantox Ltd. All rights reserved.</p>
+        <p style="margin-top: 1rem;">📞 +44 7597776846 | ✉️ info@fantox.co.uk</p>
+    </footer>
+
+    <script>
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-content, .service-visual, .process-step, .industry-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

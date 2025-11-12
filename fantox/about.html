@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fantox Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Navigation */
+
+
+
+      nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+              .nav-links a {
+  margin: 0 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #dc2626;
+}
+
+        .cta-button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #4a5568;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 8rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .story-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-content p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(153, 27, 27, 0.1) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 8rem 5%;
+            background: #f7fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: #4a5568;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2) 0%, rgba(153, 27, 27, 0.2) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .value-card p {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 8rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .team-intro h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .team-intro p {
+            color: #4a5568;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .team-stat {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #4a5568;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .mission-content h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-cta {
+            margin-top: 3rem;
+        }
+
+        .white-button {
+            padding: 1rem 3rem;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            color: #dc2626;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .white-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Accreditation Section */
+        .accreditation-section {
+            padding: 6rem 5%;
+            background: #f7fafc;
+        }
+
+        .accreditation-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .accreditation-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .accreditation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .accreditation-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .accreditation-item h3 {
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-top: 1rem;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        @media (max-width: 968px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+    <nav>
+        <img src="https://fantox.co.uk/wp-content/uploads/2023/01/Fantox-2-png.png" width="180" height="55">
+
+
+
+
+
+  <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Our Services</a>
+      
+      <a href="getstarted.html">Get Started</a>
+    </div>
+ 
+        <a href="contact.html" class="cta-button">Contact Us</a>
+    </nav>
+
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>About Fantox Ltd</h1>
+            <p>Your trusted partner in business growth and financial excellence. We've been helping UK businesses thrive for over 15 years.</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded with a vision to simplify business finances and unlock entrepreneurial potential, Fantox Ltd has grown from a small Manchester-based practice into one of the region's most trusted business advisory firms.</p>
+                <p>We started with a simple belief: every business deserves access to world-class financial expertise without the complexity and jargon that typically comes with it. Today, we serve hundreds of businesses across the UK, from ambitious startups to established enterprises.</p>
+                <p>Our success is built on relationships, trust, and results. We don't just crunch numbers—we become strategic partners in your business journey.</p>
+            </div>
+            <div class="story-image">
+                🏢
+            </div>
+        </div>
+
+        <div class="story-grid" style="direction: rtl;">
+            <div class="story-image" style="direction: ltr;">
+                🎯
+            </div>
+            <div class="story-content" style="direction: ltr;">
+                <h2>What Sets Us Apart</h2>
+                <p>We're not your typical accounting firm. While others focus solely on compliance and paperwork, we take a holistic approach to your business success.</p>
+                <p>Our team combines technical accounting expertise with real-world business experience. We've helped companies navigate economic challenges, scale operations, secure funding, and maximize profitability.</p>
+                <p>We speak plain English, respond quickly, and genuinely care about your success. That's the Fantox difference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="section-header">
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">The principles that guide everything we do</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Integrity First</h3>
+                <p>We operate with complete transparency and honesty. Your trust is our most valuable asset, and we protect it fiercely.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">🎓</div>
+                <h3>Excellence Always</h3>
+                <p>We maintain the highest professional standards and continuously invest in our team's development to serve you better.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Proactive Solutions</h3>
+                <p>We don't wait for problems to arise. We anticipate challenges and opportunities, keeping you ahead of the curve.</p>
+            </div>
+            
+            <div class="value-card">
+                <div class="value-icon">❤️</div>
+                <h3>Client-Centric</h3>
+                <p>Your goals become our goals. We measure our success by your success and go the extra mile to help you achieve it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-intro">
+            <h2>Our Expert Team</h2>
+            <p>Behind Fantox is a team of highly qualified accountants, tax specialists, and business advisors who bring decades of combined experience. Our professionals hold certifications from leading accounting bodies and undergo continuous training to stay current with regulatory changes and best practices.</p>
+            <p>We're not just advisors—we're business builders who have walked in your shoes and understand the challenges you face.</p>
+        </div>
+
+        <div class="team-stats">
+            <div class="team-stat">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="team-stat">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="team-stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Active Clients</div>
+            </div>
+            <div class="team-stat">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Retention</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p>To empower businesses with the financial clarity, strategic guidance, and support they need to achieve sustainable growth and lasting success.</p>
+            <p>We believe that every entrepreneur deserves access to professional financial expertise that helps them make confident decisions, minimize tax liabilities, and maximize profitability—all without breaking the bank.</p>
+            <div class="mission-cta">
+                <a href="tel:+447597776846" class="white-button">Join Our Success Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation Section -->
+    <section class="accreditation-section">
+        <div class="accreditation-content">
+            <h2>Accredited & Trusted</h2>
+            <p style="color: #4a5568; font-size: 1.1rem; margin-bottom: 2rem;">We maintain memberships and certifications with leading professional bodies</p>
+            
+            <div class="accreditation-grid">
+                <div class="accreditation-item">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                    <h3>ACCA Members</h3>
+                </div>
+                <div class="accreditation-item">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                    <h3>HMRC Registered</h3>
+                </div>
+                <div class="accreditation-item">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                    <h3>ICB Certified</h3>
+                </div>
+                <div class="accreditation-item">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
+                    <h3>Professional Indemnity Insured</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fantox Ltd. All rights reserved.</p>
+        <p style="margin-top: 1rem;">📞 +44 7597776846 | ✉️ info@fantox.co.uk</p>
+    </footer>
+
+    
+
+   
+<script src="script.js"></script>
+
+
+
+</body>
+</html>
