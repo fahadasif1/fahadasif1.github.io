@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - Fantox Ltd</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+             /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+
+
+       .nav-links a {
+  margin: 0 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #dc2626;
+}
+
+
+
+
+    .cta-button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, #dc2626 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #4a5568;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Progress Steps */
+        .progress-section {
+            padding: 3rem 5% 2rem;
+            background: white;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .progress-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .progress-line-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .step.active .step-circle {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border-color: #dc2626;
+            color: white;
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .step.completed .step-circle {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #cbd5e0;
+            text-align: center;
+        }
+
+        .step.active .step-label,
+        .step.completed .step-label {
+            color: #1a1a1a;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 5%;
+            min-height: 60vh;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .step-subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Service Selection Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 3px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.05) 0%, rgba(153, 27, 27, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.2);
+            border-color: #dc2626;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card.selected {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.4);
+        }
+
+        .service-card.selected .service-icon,
+        .service-card.selected h3,
+        .service-card.selected p,
+        .service-card.selected .service-price {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #dc2626;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card.selected .service-price {
+            color: white;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .service-card.selected .checkmark {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Form Sections */
+        .form-section {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            display: block;
+            padding: 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+            border-color: #dc2626;
+        }
+
+        /* Summary Section */
+        .summary-box {
+            background: #f7fafc;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #dc2626;
+        }
+
+        .summary-label {
+            color: #4a5568;
+            font-weight: 600;
+        }
+
+        .summary-value {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Navigation Buttons */
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn {
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #dc2626;
+            border: 2px solid #dc2626;
+        }
+
+        .btn-secondary:hover {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            color: #718096;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .progress-steps {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .step-label {
+                font-size: 0.8rem;
+            }
+
+            .progress-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+     <nav>
+        <img src="https://fantox.co.uk/wp-content/uploads/2023/01/Fantox-2-png.png" width="180" height="55">
+
+
+
+
+
+  <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Our Services</a>
+
+
+    </div>
+
+        <a href="contact.html" class="cta-button">Contact Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get Started Today</h1>
+            <p>Begin your journey to financial success. Follow our simple 4-step process to get a personalized quote and start working with Fantox.</p>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="progress-line">
+                    <div class="progress-line-fill" id="progressFill"></div>
+                </div>
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">Select Service</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">Business Info</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">Your Details</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">Review & Submit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="content-container">
+            <!-- Step 1: Service Selection -->
+            <div class="step-content active" data-step="1">
+                <h2 class="step-title">Choose Your Service</h2>
+                <p class="step-subtitle">Select the service that best fits your needs (you can add more later)</p>
+
+                <div class="services-grid">
+                    <div class="service-card" data-service="accountancy" data-price="£150">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">📊</div>
+                        <h3>Accountancy</h3>
+                        <p>Complete bookkeeping and financial reporting services</p>
+                        <div class="service-price">From £150/month</div>
+                    </div>
+
+                    <div class="service-card" data-service="taxation" data-price="£200">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">💰</div>
+                        <h3>Taxation</h3>
+                        <p>Expert tax planning and compliance services</p>
+                        <div class="service-price">From £200/month</div>
+                    </div>
+
+                    <div class="service-card" data-service="payroll" data-price="£8">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">👥</div>
+                        <h3>Payroll Management</h3>
+                        <p>Hassle-free payroll processing and reporting</p>
+                        <div class="service-price">From £8 per employee</div>
+                    </div>
+
+                    <div class="service-card" data-service="startup" data-price="£499">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">🚀</div>
+                        <h3>Business Start-up</h3>
+                        <p>Complete support for launching your business</p>
+                        <div class="service-price">From £499 package</div>
+                    </div>
+
+                    <div class="service-card" data-service="consultancy" data-price="£1500">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">📈</div>
+                        <h3>Management Consultancy</h3>
+                        <p>Strategic business performance improvement</p>
+                        <div class="service-price">From £1,500/project</div>
+                    </div>
+
+                    <div class="service-card" data-service="advisory" data-price="£500">
+                        <div class="checkmark">✓</div>
+                        <div class="service-icon">💡</div>
+                        <h3>Business Advisory</h3>
+                        <p>Ongoing strategic guidance and support</p>
+                        <div class="service-price">From £500/month</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" id="nextStep1" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Business Information -->
+            <div class="step-content" data-step="2">
+                <h2 class="step-title">Tell Us About Your Business</h2>
+                <p class="step-subtitle">Help us understand your business needs</p>
+
+                <div class="form-section">
+                    <div class="form-group">
+                        <label>Company Name *</label>
+                        <input type="text" id="companyName" placeholder="Your Company Ltd" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Business Type *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="soleTrader" name="businessType" value="Sole Trader">
+                                <label for="soleTrader" class="radio-label">Sole Trader</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="limited" name="businessType" value="Limited Company">
+                                <label for="limited" class="radio-label">Limited Company</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="partnership" name="businessType" value="Partnership">
+                                <label for="partnership" class="radio-label">Partnership</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Industry Sector *</label>
+                        <select id="industrySector" required>
+                            <option value="">Please select...</option>
+                            <option value="construction">Construction & Trades</option>
+                            <option value="retail">Retail & E-commerce</option>
+                            <option value="technology">Technology & IT</option>
+                            <option value="healthcare">Healthcare & Medical</option>
+                            <option value="hospitality">Hospitality & Food</option>
+                            <option value="property">Property & Real Estate</option>
+                            <option value="transport">Transport & Logistics</option>
+                            <option value="creative">Creative & Media</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Employees *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="emp1" name="employees" value="1-5">
+                                <label for="emp1" class="radio-label">1-5</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="emp2" name="employees" value="6-20">
+                                <label for="emp2" class="radio-label">6-20</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="emp3" name="employees" value="21-50">
+                                <label for="emp3" class="radio-label">21-50</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="emp4" name="employees" value="50+">
+                                <label for="emp4" class="radio-label">50+</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Annual Turnover (Optional)</label>
+                        <select id="turnover">
+                            <option value="">Prefer not to say</option>
+                            <option value="0-50k">£0 - £50,000</option>
+                            <option value="50k-100k">£50,000 - £100,000</option>
+                            <option value="100k-250k">£100,000 - £250,000</option>
+                            <option value="250k-500k">£250,000 - £500,000</option>
+                            <option value="500k+">£500,000+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" id="nextStep2" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Your Details -->
+            <div class="step-content" data-step="3">
+                <h2 class="step-title">Your Contact Information</h2>
+                <p class="step-subtitle">How can we reach you?</p>
+
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="firstName" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="lastName" placeholder="Smith" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="email" placeholder="john@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="+44 7XXX XXXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Contact Method *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="contactEmail" name="contactMethod" value="Email">
+                                <label for="contactEmail" class="radio-label">Email</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="contactPhone" name="contactMethod" value="Phone">
+                                <label for="contactPhone" class="radio-label">Phone</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>When would you like to start? *</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="immediate" name="startTime" value="Immediately">
+                                <label for="immediate" class="radio-label">Immediately</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="month" name="startTime" value="Within 1 month">
+                                <label for="month" class="radio-label">Within 1 month</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="planning" name="startTime" value="Just planning">
+                                <label for="planning" class="radio-label">Just planning</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Information (Optional)</label>
+                        <textarea id="additionalInfo" rows="4" placeholder="Tell us anything else that might help us serve you better..."></textarea>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" id="nextStep3" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Review & Submit -->
+            <div class="step-content" data-step="4">
+                <h2 class="step-title">Review Your Information</h2>
+                <p class="step-subtitle">Please review your details before submitting</p>
+
+                <div class="form-section">
+                    <div class="summary-box" id="summaryContent">
+                        <!-- Summary will be populated by JavaScript -->
+                    </div>
+
+                    <p style="text-align: center; color: #4a5568; margin-bottom: 2rem;">
+                        By submitting this form, you agree to be contacted by Fantox Ltd regarding your enquiry. We'll respond within 24 hours with a personalized quote.
+                    </p>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" id="submitForm">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fantox Ltd. All rights reserved.</p>
+        <p style="margin-top: 1rem;">📞 +44 (0) 7597776846 | ✉️ info@fantox.co.uk</p>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        let formData = {
+            service: '',
+            servicePrice: '',
+            companyName: '',
+            businessType: '',
+            industrySector: '',
+            employees: '',
+            turnover: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            contactMethod: '',
+            startTime: '',
+            additionalInfo: ''
+        };
+
+        // Service selection
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.service-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                formData.service = this.dataset.service;
+                formData.servicePrice = this.dataset.price;
+                document.getElementById('nextStep1').disabled = false;
+            });
+        });
+
+        // Step 1 validation
+        document.getElementById('nextStep1').addEventListener('click', () => nextStep());
+
+        // Step 2 validation
+        function validateStep2() {
+            const companyName = document.getElementById('companyName').value;
+            const businessType = document.querySelector('input[name="businessType"]:checked');
+            const industry = document.getElementById('industrySector').value;
+            const employees = document.querySelector('input[name="employees"]:checked');
+
+            if (companyName && businessType && industry && employees) {
+                document.getElementById('nextStep2').disabled = false;
+            } else {
+                document.getElementById('nextStep2').disabled = true;
+            }
+        }
+
+        document.getElementById('companyName').addEventListener('input', validateStep2);
+        document.getElementById('industrySector').addEventListener('change', validateStep2);
+        document.querySelectorAll('input[name="businessType"]').forEach(radio => {
+            radio.addEventListener('change', validateStep2);
+        });
+        document.querySelectorAll('input[name="employees"]').forEach(radio => {
+            radio.addEventListener('change', validateStep2);
+        });
+
+        document.getElementById('nextStep2').addEventListener('click', () => {
+            formData.companyName = document.getElementById('companyName').value;
+            formData.businessType = document.querySelector('input[name="businessType"]:checked').value;
+            formData.industrySector = document.getElementById('industrySector').value;
+            formData.employees = document.querySelector('input[name="employees"]:checked').value;
+            formData.turnover = document.getElementById('turnover').value;
+            nextStep();
+        });
+
+        // Step 3 validation
+        function validateStep3() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const contactMethod = document.querySelector('input[name="contactMethod"]:checked');
+            const startTime = document.querySelector('input[name="startTime"]:checked');
+
+            if (firstName && lastName && email && phone && contactMethod && startTime) {
+                document.getElementById('nextStep3').disabled = false;
+            } else {
+                document.getElementById('nextStep3').disabled = true;
+            }
+        }
+
+        document.getElementById('firstName').addEventListener('input', validateStep3);
+        document.getElementById('lastName').addEventListener('input', validateStep3);
+        document.getElementById('email').addEventListener('input', validateStep3);
+        document.getElementById('phone').addEventListener('input', validateStep3);
+        document.querySelectorAll('input[name="contactMethod"]').forEach(radio => {
+            radio.addEventListener('change', validateStep3);
+        });
+        document.querySelectorAll('input[name="startTime"]').forEach(radio => {
+            radio.addEventListener('change', validateStep3);
+        });
+
+        document.getElementById('nextStep3').addEventListener('click', () => {
+            formData.firstName = document.getElementById('firstName').value;
+            formData.lastName = document.getElementById('lastName').value;
+            formData.email = document.getElementById('email').value;
+            formData.phone = document.getElementById('phone').value;
+            formData.contactMethod = document.querySelector('input[name="contactMethod"]:checked').value;
+            formData.startTime = document.querySelector('input[name="startTime"]:checked').value;
+            formData.additionalInfo = document.getElementById('additionalInfo').value;
+            nextStep();
+        });
+
+        // Navigation functions
+        function nextStep() {
+            if (currentStep < 4) {
+                currentStep++;
+                updateStepDisplay();
+                if (currentStep === 4) {
+                    displaySummary();
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStepDisplay();
+            }
+        }
+
+        function updateStepDisplay() {
+            // Update step content
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelector(`.step-content[data-step="${currentStep}"]`).classList.add('active');
+
+            // Update progress indicators
+            document.querySelectorAll('.step').forEach(step => {
+                const stepNum = parseInt(step.dataset.step);
+                step.classList.remove('active', 'completed');
+
+                if (stepNum === currentStep) {
+                    step.classList.add('active');
+                } else if (stepNum < currentStep) {
+                    step.classList.add('completed');
+                    step.querySelector('.step-circle').textContent = '✓';
+                } else {
+                    step.querySelector('.step-circle').textContent = stepNum;
+                }
+            });
+
+            // Update progress bar
+            const progress = ((currentStep - 1) / 3) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function displaySummary() {
+            const serviceNames = {
+                'accountancy': 'Accountancy',
+                'taxation': 'Taxation',
+                'payroll': 'Payroll Management',
+                'startup': 'Business Start-up',
+                'consultancy': 'Management Consultancy',
+                'advisory': 'Business Advisory'
+            };
+
+            const summaryHTML = `
+                <div class="summary-item">
+                    <span class="summary-label">Selected Service:</span>
+                    <span class="summary-value">${serviceNames[formData.service]}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Estimated Cost:</span>
+                    <span class="summary-value">${formData.servicePrice}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Company Name:</span>
+                    <span class="summary-value">${formData.companyName}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Business Type:</span>
+                    <span class="summary-value">${formData.businessType}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Industry:</span>
+                    <span class="summary-value">${formData.industrySector}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Number of Employees:</span>
+                    <span class="summary-value">${formData.employees}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Contact Person:</span>
+                    <span class="summary-value">${formData.firstName} ${formData.lastName}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Email:</span>
+                    <span class="summary-value">${formData.email}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Phone:</span>
+                    <span class="summary-value">${formData.phone}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Preferred Contact:</span>
+                    <span class="summary-value">${formData.contactMethod}</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Start Timeline:</span>
+                    <span class="summary-value">${formData.startTime}</span>
+                </div>
+            `;
+
+            document.getElementById('summaryContent').innerHTML = summaryHTML;
+        }
+
+        // Form submission
+        document.getElementById('submitForm').addEventListener('click', function() {
+            // Show success message
+            alert('Thank you for your request! We\'ll contact you within 24 hours with a personalized quote and next steps.');
+
+            // Log form data (in production, send to server)
+            console.log('Form submitted:', formData);
+
+            // Redirect or reset
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        });
+
+        // Initialize
+        updateStepDisplay()
