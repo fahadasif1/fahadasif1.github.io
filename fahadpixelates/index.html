@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photography Portfolio</title>
+    <title>Fahad Asif | Visual Storyteller</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -39,19 +40,20 @@
         },
       };
     </script>
-    <!-- Google Fonts: Playfair Display (Editorial/Luxury) & Lato (Clean/Readable) -->
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
-      /* Smooth scrolling for anchor links */
       html {
         scroll-behavior: smooth;
       }
-      /* Hide scrollbar for cleaner look in some browsers */
+      /* Hide scrollbar for cleaner look */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -65,6 +67,19 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #444;
       }
+      .scroll-mt-28 {
+        scroll-margin-top: 7rem;
+      }
+      /* Animation classes managed by Intersection Observer */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
   <script type="importmap">
 {
@@ -77,8 +92,393 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-background text-primary antialiased selection:bg-accent selection:text-background">
-    <div id="root"></div>
+  <body class="bg-background text-primary antialiased selection:bg-accent selection:text-background font-sans">
+    
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-transparent py-6">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="font-serif text-2xl tracking-widest font-bold text-primary hover:text-accent transition-colors nav-link">
+          FAHAD ASIF
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#gallery" class="text-sm uppercase tracking-widest text-secondary hover:text-accent transition-colors nav-link">Gallery</a>
+          <a href="#about" class="text-sm uppercase tracking-widest text-secondary hover:text-accent transition-colors nav-link">About</a>
+          <a href="#contact" class="text-sm uppercase tracking-widest text-secondary hover:text-accent transition-colors nav-link">Contact</a>
+          <a href="#contact" class="px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 uppercase text-xs tracking-widest nav-link">
+            Book Now
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-btn" class="md:hidden text-primary" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-surface border-t border-white/10 p-4 flex flex-col space-y-4 shadow-2xl">
+        <a href="#gallery" class="text-base uppercase tracking-widest text-primary hover:text-accent block py-2 nav-link mobile-link">Gallery</a>
+        <a href="#about" class="text-base uppercase tracking-widest text-primary hover:text-accent block py-2 nav-link mobile-link">About</a>
+        <a href="#contact" class="text-base uppercase tracking-widest text-primary hover:text-accent block py-2 nav-link mobile-link">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop" 
+            alt="Hero background" 
+            class="w-full h-full object-cover animate-[fadeIn_0.8s_ease-out_forwards] scale-105"
+          />
+        </div>
+
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto">
+          <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-8 animate-[slideUp_0.8s_ease-out_forwards]" style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">
+            Visual Storyteller & Photographer
+          </p>
+          
+          <div class="animate-[slideUp_0.8s_ease-out_forwards]" style="animation-delay: 0.4s; opacity: 0; animation-fill-mode: forwards;">
+            <a href="#gallery" class="inline-block px-8 py-4 border border-primary/30 text-primary bg-black/20 hover:bg-primary hover:text-background backdrop-blur-sm transition-all duration-500 uppercase tracking-widest text-sm cursor-pointer nav-link">
+              View Portfolio
+            </a>
+          </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce opacity-50 z-20">
+          <i data-lucide="arrow-down" class="text-primary w-6 h-6"></i>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section id="gallery" class="scroll-mt-28 py-24 px-4 md:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-serif text-4xl text-primary mb-4">Selected Works</h2>
+          <div class="w-24 h-1 bg-accent mx-auto mb-8"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Image 1: Portfolio XXI -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=15jTUbtJxfgR0NS7E0rhQNzO6kuq6u5PB&sz=w1000" alt="Portfolio XXI" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Stoke-on-Trent</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XXI</h3>
+            </div>
+          </div>
+          <!-- Image 2: Portfolio XX -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1f3BVGHgASPwxs9Y7p0t61LwNbf06nTur&sz=w1000" alt="Portfolio XX" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Wales</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XX</h3>
+            </div>
+          </div>
+          <!-- Image 3: Portfolio XIX -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1H3MERzu4_doyYTFw5_SByFYWwEfD0u-a&sz=w1000" alt="Portfolio XIX" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Coventry</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XIX</h3>
+            </div>
+          </div>
+          <!-- Image 4: Portfolio XVIII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1S_7YRdSKLBiP5N8E8HDqx9uRioFuH050&sz=w1000" alt="Portfolio XVIII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Scotland</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XVIII</h3>
+            </div>
+          </div>
+          <!-- Image 5: Portfolio XVII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=12hRyhzhReinw4j9J4-vUQB0HyMAHYoXe&sz=w1000" alt="Portfolio XVII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Rugby Train Station</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XVII</h3>
+            </div>
+          </div>
+          <!-- Image 6: Portfolio XVI -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1vdOoO6XZaO4n5ESafGK_0WNWMe4sNwU3&sz=w1000" alt="Portfolio XVI" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Earlsdon Arts Hall</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XVI</h3>
+            </div>
+          </div>
+          <!-- Image 7: Portfolio XV -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1RRgOXaH22LuQdelUJcdHtb5XejBBs16o&sz=w1000" alt="Portfolio XV" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Coventry Vintage Pub</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XV</h3>
+            </div>
+          </div>
+          <!-- Image 8: Portfolio XIV -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1GrIpQPiOg9ymPF3w0n3JtBvNOH3nl5v6&sz=w1000" alt="Portfolio XIV" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Scotland</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XIV</h3>
+            </div>
+          </div>
+          <!-- Image 9: Portfolio XIII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1IMgODQnEKbD0I8QNivCOdFWCJhuN4Onl&sz=w1000" alt="Portfolio XIII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Coventry Cathedral Way</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XIII</h3>
+            </div>
+          </div>
+          <!-- Image 10: Portfolio XII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1rxzu7cg1vK4QMh4VQzspNgCQqU3t_PXp&sz=w1000" alt="Portfolio XII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Birmingham City Centre</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XII</h3>
+            </div>
+          </div>
+          <!-- Image 11: Portfolio XI -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1RR71LswijF5_IQbtebkX0jzHHfzV4Bbp&sz=w1000" alt="Portfolio XI" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Coventry Cathedral</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio XI</h3>
+            </div>
+          </div>
+          <!-- Image 12: Portfolio X -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1_dc-0DK2n58u5vnvjdRWWOj7iG0RXypR&sz=w1000" alt="Portfolio X" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Earlsdon</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio X</h3>
+            </div>
+          </div>
+          <!-- Image 13: Portfolio IX -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1LKAxjqnEaGU6ejgFFxTQCZc33ZmGSua-&sz=w1000" alt="Portfolio IX" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Portrait</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio IX</h3>
+            </div>
+          </div>
+          <!-- Image 14: Portfolio VIII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1s4GeCPDLTE5LLDNEg7hoD4sEw60VR9Lv&sz=w1000" alt="Portfolio VIII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Editorial</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio VIII</h3>
+            </div>
+          </div>
+          <!-- Image 15: Portfolio VII -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1kOPM0gT67Hvt3lIc_cgrgHlGMJjxslqi&sz=w1000" alt="Portfolio VII" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Landscape</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio VII</h3>
+            </div>
+          </div>
+          <!-- Image 16: Portfolio VI -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1kVzJCXQ81JN_NCvkGf-Rd9WMqXYvfpzP&sz=w1000" alt="Portfolio VI" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Wales</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio VI</h3>
+            </div>
+          </div>
+          <!-- Image 17: Portfolio V -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1GYsVsWHrwkzd7ZEhEZzW2tVS8PQJE6jU&sz=w1000" alt="Portfolio V" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Birmingham</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio V</h3>
+            </div>
+          </div>
+          <!-- Image 18: Portfolio IV -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1hVKpz8sW8poPcVs3968kL1wbKadk5ikC&sz=w1000" alt="Portfolio IV" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Birmingham</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio IV</h3>
+            </div>
+          </div>
+          <!-- Image 19: Portfolio III -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1s_F262nTeoUNfgic1pxNeVn5oBHgbfP0&sz=w1000" alt="Portfolio III" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Stoke-on-Trent</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio III</h3>
+            </div>
+          </div>
+          <!-- Image 20: Portfolio II -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=10G51VxzQkQbHE31HHzRcpNrsqtKk3TDH&sz=w1000" alt="Portfolio II" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Stoke-on-Trent</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio II</h3>
+            </div>
+          </div>
+          <!-- Image 21: Portfolio I -->
+          <div class="group relative aspect-[4/5] overflow-hidden bg-surface cursor-pointer reveal">
+            <img src="https://drive.google.com/thumbnail?id=1H-uuH8MLlXw1mLbNL8ogbQS01_Pl53kO&sz=w1000" alt="Portfolio I" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100" loading="lazy" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+              <span class="text-accent text-xs uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">Wales</span>
+              <h3 class="text-primary font-serif text-2xl italic translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Portfolio I</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="scroll-mt-28 bg-surface py-24 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16 reveal">
+          <!-- Image Side -->
+          <div class="w-full md:w-1/2 relative">
+            <div class="relative z-10 border border-white/10 p-2">
+              <img src="https://drive.google.com/thumbnail?id=1ATfRfpycLpPqlnmTwkEVgAahm_3S5g5v&sz=w1000" alt="Photographer Profile" class="w-full aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+            </div>
+            <div class="absolute -bottom-4 -right-4 w-full h-full border border-accent/30 z-0 hidden md:block"></div>
+          </div>
+
+          <!-- Text Side -->
+          <div class="w-full md:w-1/2">
+            <h2 class="font-serif text-4xl md:text-5xl text-primary mb-8">Behind the Lens</h2>
+            
+            <div class="space-y-6 text-secondary text-lg leading-relaxed font-light">
+              <p>I am Fahad Asif, a visual storyteller driven by a passion for capturing authentic, unscripted moments. My work focuses on the human experience, using light, shadow, silence, and movement to create images that feel honest and emotionally grounded.</p>
+              <p>I believe a photograph is more than an image — it is a moment preserved, a fleeting second made lasting. Through a thoughtful and intuitive approach, I aim to tell stories that resonate and leave a lasting impression.</p>
+              <p>Available for collaborations, creative projects, and commissioned work.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="scroll-mt-28 py-24 px-4 md:px-8 max-w-3xl mx-auto reveal">
+        <div class="grid md:grid-cols-2 gap-16">
+          <!-- Contact Info -->
+          <div>
+            <h2 class="font-serif text-4xl text-primary mb-6">Let's Create Together</h2>
+            <p class="text-secondary text-lg mb-8">Interested in working together? Fill out the form below or send me an email directly.</p>
+            
+            <div class="mb-12">
+              <a href="mailto:fahad.asif1@yahoo.com" class="text-xl md:text-2xl text-accent border-b border-accent/50 pb-1 hover:text-white hover:border-white transition-colors">
+                fahad.asif1@yahoo.com
+              </a>
+            </div>
+
+            <div>
+              <h3 class="text-sm uppercase tracking-widest text-secondary mb-4">Follow Me</h3>
+              <div class="flex space-x-6">
+                <a href="https://instagram.com/fahadpixelates" target="_blank" rel="noreferrer" class="text-primary hover:text-accent transition-colors" aria-label="Instagram">
+                  <i data-lucide="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="https://linkedin.com/in/fahadasif1" target="_blank" rel="noreferrer" class="text-primary hover:text-accent transition-colors" aria-label="LinkedIn">
+                  <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="space-y-6" onsubmit="event.preventDefault();">
+            <div>
+              <label htmlFor="name" class="block text-xs uppercase tracking-widest text-secondary mb-2">Name</label>
+              <input type="text" id="name" class="w-full bg-surface border border-white/10 p-4 text-primary focus:border-accent focus:outline-none transition-colors" placeholder="Your Name" />
+            </div>
+            <div>
+              <label htmlFor="email" class="block text-xs uppercase tracking-widest text-secondary mb-2">Email</label>
+              <input type="email" id="email" class="w-full bg-surface border border-white/10 p-4 text-primary focus:border-accent focus:outline-none transition-colors" placeholder="your@email.com" />
+            </div>
+            <div>
+              <label htmlFor="message" class="block text-xs uppercase tracking-widest text-secondary mb-2">Message</label>
+              <textarea id="message" rows="5" class="w-full bg-surface border border-white/10 p-4 text-primary focus:border-accent focus:outline-none transition-colors" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button type="submit" class="w-full py-4 bg-primary text-background uppercase tracking-widest font-bold hover:bg-accent transition-colors duration-300">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 bg-background text-center">
+      <div class="max-w-7xl mx-auto px-4">
+        <p class="text-secondary text-sm">
+          &copy; <span id="year"></span> Fahad Asif. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JS Logic -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Navbar Scroll Logic
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('bg-background/95', 'backdrop-blur-sm', 'border-b', 'border-surface');
+          navbar.classList.remove('bg-transparent', 'py-6');
+          navbar.classList.add('py-4');
+        } else {
+          navbar.classList.remove('bg-background/95', 'backdrop-blur-sm', 'border-b', 'border-surface');
+          navbar.classList.add('bg-transparent', 'py-6');
+          navbar.classList.remove('py-4');
+        }
+      });
+
+      // Mobile Menu Logic
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const menuIcon = mobileMenuBtn.querySelector('i');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+        } else {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+        }
+        lucide.createIcons();
+      });
+
+      // Close mobile menu on link click
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+          lucide.createIcons();
+        });
+      });
+
+      // Intersection Observer for Scroll Animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
